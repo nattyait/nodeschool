@@ -1,5 +1,3 @@
-var sum=0
-for(var i=2; i<process.argv.length; i++){
-   sum+= +process.argv[i]
-}
-console.log(sum)
+var fs = require('fs')
+result = fs.readFileSync(process.argv[2])
+console.log(result.toString().split('\n').length - 1)

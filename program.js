@@ -1,12 +1,9 @@
-var path = require('path')
-var fs = require('fs')
-var number = undefined
-var content_split;
-
-fs.readdir(process.argv[2], function doneReading(err, data){
-        for(var i=0; i<data.length; i++){
-          if(path.extname(data[i]).split('.')[1] == process.argv[3]){
-            console.log(data[i])
-          }
-        }
+var mymodule = require('./mymodule.js')
+mymodule(process.argv[2], process.argv[3], function(err, arr){
+  if(err){
+    return console.error('Error: ', err)
+  }
+  arr.forEach(function (file){
+    console.log(file)
+   })
 })
